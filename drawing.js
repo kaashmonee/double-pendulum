@@ -17,10 +17,6 @@ context.fillRect(50,50,50,50);
 window.addEventListener("load",plsWork);
 */
 
-
-function plsWork()
-{
-	alert("IT WORKS");
 	var canvas=document.getElementById("canvas");
     var context=canvas.getContext("2d");
 	//alert("yolw");
@@ -42,20 +38,28 @@ function plsWork()
 	var dTheta1=0;
 	var dTheta2=0;
 	var mu =  1+m1/m2;
+function plsWork()
+{
+	alert("IT WORKS");
+	
 
 	var line1={x0: 0, y0: 0, x:0, y:0};
 	//alert(m1);//m1 returns nothing. 
 
 	//DONT' WORRY ABOUT THE FOR LOOP BELOW
 	alert("the shit before the for loop works");
-    for (a=0; a<100; a+=time) {
-		if (a<=0) alert("for loop works");
-		else {
-			context.rect(0,0,a,a);
-			context.stroke();
-			setTimeout("", 2000);
-			context.clearRect(0,0,100, 100);
-		}
+    var variable=0;
+    var id = setInterval(animate,3000);
+    function animate() {
+    	if (variable>=100) clearInterval(id);
+    	else {
+    		context.clearRect(0,0,300,300);
+		context.rect(0,0,variable,variable);
+		context.stroke();
+		variable+=10;
+		//context.clearRect(0,0,100,100);
+	}
+	}
 		// d2Theta1  =  (g*(Math.sin(Theta2)*Math.cos(Theta1-Theta2)-mu*Math.sin(Theta1))-(l2*dTheta2*dTheta2+l1*dTheta1*dTheta1*Math.cos(Theta1-Theta2))*Math.sin(Theta1-Theta2))/(l1*(mu-Math.cos(Theta1-Theta2)*Math.cos(Theta1-Theta2)));
 		// d2Theta2  =  (mu*g*(Math.sin(Theta1)*Math.cos(Theta1-Theta2)-Math.sin(Theta2))+(mu*l1*dTheta1*dTheta1+l2*dTheta2*dTheta2*Math.cos(Theta1-Theta2))*Math.sin(Theta1-Theta2))/(l2*(mu-Math.cos(Theta1-Theta2)*Math.cos(Theta1-Theta2)));
 		// dTheta1   += d2Theta1*time;//error here at this line
@@ -71,9 +75,13 @@ function plsWork()
 		// context.strokeStyle="black";
 		// context.stroke();
 		
-	}
+	
 	window.addEventListener("load",plsWork);
 	}
+
+	
+
+
    
    
 	//having problems with getting mass1 referenced in js

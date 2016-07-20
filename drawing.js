@@ -12,6 +12,7 @@ context.fillStyle="yellow";
 
 context.fillRect(50,50,50,50);
 }
+//i just opened some shit
 
 window.addEventListener("load",plsWork);
 */

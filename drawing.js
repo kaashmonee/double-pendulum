@@ -28,7 +28,7 @@ function plsWork()
 	//alert("yo");
 	m1=window.mass1;
 	m2=window.mass2;
-	alert("yo");
+	//alert("yo");
 	if (Math.cos(0)==1) alert("hello");
 	var g=9.8;
 	var time =2;
@@ -41,7 +41,9 @@ function plsWork()
 	var dTheta2=0;
 	var mu =  1+m1/m2;
 	var line1={x0: 0, y0: 0, x:0, y:0};
-	alert(m1);
+	alert(m1);//m1 returns nothing. 
+
+	//DONT' WORRY ABOUT THE FOR LOOP BELOW
 	
     for (a=0; a<100; a+=time) {
 		

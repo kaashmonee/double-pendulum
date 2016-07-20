@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+	<html>
+	<head>
+	<title>JavaScript Hello World</title>
+	</head>
+	<body>
+		<h1> Welcome to the double pendulum simulation!
+			
+		<script> 
+			//document.getElementById("demo").innerHTML =
+        //"Hello " + person + "! How are you today?";
+			top.mass1="";
+			top.mass2="";
+			window.isSet=false;
+			
+			function m1() {
+				
+			 window.mass1=prompt("Please enter the first mass: ");	
+				if (window.mass1!=null && window.mass1!="" && Number(window.mass1)>0)
+				document.getElementById("M1P").innerHTML="Mass 1 = "+window.mass1+" kg";
+				else
+				document.getElementById("M1P").innerHTML="Please enter a valid value.";	
+			}
+			function m2() {
+			window.mass2=prompt("Please enter the second mass: ");	
+				if (window.mass2!=null && window.mass2!="" && Number(window.mass2)>0) {
+				
+				document.getElementById("M2P").innerHTML="Mass 2 = "+window.mass2+" kg";
+				}
+				else
+				document.getElementById("M2P").innerHTML="Please enter a valid value.";
+				
+			}
+			
+			function turnOffButtons() {
+				document.getElementById("m1b").disabled=true;
+				document.getElementById("m2b").disabled=true;
+				isSet=true;
+			}
+			
+			//var canvas=getElementById("canvas"), context = canvas.getContext("2d");
+			//canvas.fillRect(50,50,50,50);
+			
+			</script>	
+			<p><button id ="m1b" onclick="m1()">Mass 1</button></p>
+			<p><button id="m2b" onclick="m2()">Mass 2</button></p>
+			<p><button onclick="turnOffButtons()">Set</button></p>
+			<p id="M1P"></p>
+			<p id="M2P"></p>
+			
+		</h1>
+		<h2> Please choose a mass values between 100 and 500. </h2>
+		<h3> 
+			<canvas id="canvas"> </canvas>
+			<script src="drawing.js"> </script>
+		</h3> 
+		
+		</body>
+		</html>

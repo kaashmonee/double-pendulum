@@ -49,13 +49,15 @@ function plsWork()
 	//DONT' WORRY ABOUT THE FOR LOOP BELOW
 	alert("the shit before the for loop works");
     var variable=0;
-    var id = setInterval(animate,3000);
+    var id = setInterval(animate,30);
     function animate() {
     	if (variable>=100) clearInterval(id);
     	else {
     		context.clearRect(0,0,300,300);
+    		context.beginPath();
 		context.rect(0,0,variable,variable);
 		context.stroke();
+		context.closePath();
 		variable+=10;
 		//context.clearRect(0,0,100,100);
 	}

@@ -13,7 +13,7 @@ function setUp() {
 	var l1=100;
 	var l2=100;
 	var Theta1=(Math.PI)/2; 
-	var Theta2=(Math.PI)/2-1;
+	var Theta2=(Math.PI)/2;
 	var d2Theta1=0;
 	var d2Theta2=0;
 	var dTheta1=0;
@@ -30,13 +30,13 @@ function start()
     var id = setInterval(animate,10);
     function animate() {
 			context.clearRect(0,0,context.canvas.width, context.canvas.height);
-			d2Theta1  =  (g*(Math.sin(Theta2)*Math.cos(Theta1-Theta2)-mu*Math.sin(Theta1))-(l2*dTheta2*dTheta2+l1*dTheta1*dTheta1*Math.cos(Theta1-Theta2))*Math.sin(Theta1-Theta2))/(l1*(mu-Math.cos(Theta1-Theta2)*Math.cos(Theta1-Theta2)));
-			d2Theta2  =  (mu*g*(Math.sin(Theta1)*Math.cos(Theta1-Theta2)-Math.sin(Theta2))+(mu*l1*dTheta1*dTheta1+l2*dTheta2*dTheta2*Math.cos(Theta1-Theta2))*Math.sin(Theta1-Theta2))/(l2*(mu-Math.cos(Theta1-Theta2)*Math.cos(Theta1-Theta2)));
-			dTheta1   += d2Theta1*time;
-			dTheta2   += d2Theta2*time;
-			Theta1    += dTheta1*time;
-			Theta2    += dTheta2*time;
-			line1={x0: 175, y0: 50, x: line1.x0+(l1*Math.sin(Theta1)), y: line1.y0+(l1*Math.cos(Theta1))};
+			d2Theta1 = (g*(Math.sin(Theta2)*Math.cos(Theta1-Theta2)-mu*Math.sin(Theta1))-(l2*dTheta2*dTheta2+l1*dTheta1*dTheta1*Math.cos(Theta1-Theta2))*Math.sin(Theta1-Theta2))/(l1*(mu-Math.cos(Theta1-Theta2)*Math.cos(Theta1-Theta2)));
+			d2Theta2 = (mu*g*(Math.sin(Theta1)*Math.cos(Theta1-Theta2)-Math.sin(Theta2))+(mu*l1*dTheta1*dTheta1+l2*dTheta2*dTheta2*Math.cos(Theta1-Theta2))*Math.sin(Theta1-Theta2))/(l2*(mu-Math.cos(Theta1-Theta2)*Math.cos(Theta1-Theta2)));
+			dTheta1 += d2Theta1*time;
+			dTheta2 += d2Theta2*time;
+			Theta1 += dTheta1*time;
+			Theta2 += dTheta2*time;
+			line1={x0: 300, y0: 150, x: line1.x0+(l1*Math.sin(Theta1)), y: line1.y0+(l1*Math.cos(Theta1))};
 			line2={x0: line1.x, y0: line1.y, x: line1.x+l2*Math.sin(Theta2), y: line1.y+l2*Math.cos(Theta2)};
 			drawLine(context,line1.x0, line1.y0, line1.x, line1.y);
 			drawLine(context,line2.x0, line2.y0, line2.x, line2.y);
@@ -46,7 +46,6 @@ function start()
 			drawCircle(context, line2.x, line2.y,radius2);
 			variable++;	
 	}
-		
 	
 	}
 

@@ -4,8 +4,8 @@ alert("it's working");
     var context=canvas.getContext("2d");
 	//alert("yolw");
  	
-	canvas.width=1000;
-	canvas.height=1000;
+	canvas.width=600;
+	canvas.height=600;
 	//alert("yo");
 	m1=window.mass1;
 	m2=window.mass2;
@@ -51,7 +51,7 @@ function plsWork()
 			dTheta2   += d2Theta2*time;
 			Theta1    += dTheta1*time;
 			Theta2    += dTheta2*time;
-			line1={x0: 500, y0: 0, x: line1.x0+(l1*Math.sin(Theta1)), y: line1.y0+(l1*Math.cos(Theta1))};
+			line1={x0: 200, y0: 200, x: line1.x0+(l1*Math.sin(Theta1)), y: line1.y0+(l1*Math.cos(Theta1))};
 			line2={x0: line1.x, y0: line1.y, x: line1.x+l2*Math.sin(Theta2), y: line1.y+l2*Math.cos(Theta2)};
 			drawLine(context,line1.x0, line1.y0, line1.x, line1.y);
 			//alert(d2Theta1);

@@ -1,18 +1,13 @@
 
-alert("it's working");
+function setUp() {
 	var canvas=document.getElementById("canvas");
     var context=canvas.getContext("2d");
-	//alert("yolw");
- 	
 	canvas.width=600;
 	canvas.height=600;
-	//alert("yo");
-	m1=window.mass1;
-	m2=window.mass2;
-	m1=100;
-	m2=50;
-	//alert("yo");
-	//if (Math.cos(0)==1) alert("hello");
+	var m1=window.mass1;
+	var m2=window.mass2;
+	var radius1=m1/10;
+	var radius2=m2/10;
 	var g=9.8;
 	var time =0.1;
 	var l1=100;
@@ -26,8 +21,8 @@ alert("it's working");
 	var mu =1+(m1/m2);
 	var line1={x0: 0, y0: 0, x:0, y:0};
 	var line2={x0: 0, y0: 0, x:0, y:0};
-//alert(line1);
-function plsWork()
+start();
+function start()
 {
 	alert("IT WORKS");
 	alert("the shit before the for loop works");
@@ -37,14 +32,6 @@ function plsWork()
 			context.clearRect(0,0,context.canvas.width, context.canvas.height);
 			d2Theta1  =  (g*(Math.sin(Theta2)*Math.cos(Theta1-Theta2)-mu*Math.sin(Theta1))-(l2*dTheta2*dTheta2+l1*dTheta1*dTheta1*Math.cos(Theta1-Theta2))*Math.sin(Theta1-Theta2))/(l1*(mu-Math.cos(Theta1-Theta2)*Math.cos(Theta1-Theta2)));
 			d2Theta2  =  (mu*g*(Math.sin(Theta1)*Math.cos(Theta1-Theta2)-Math.sin(Theta2))+(mu*l1*dTheta1*dTheta1+l2*dTheta2*dTheta2*Math.cos(Theta1-Theta2))*Math.sin(Theta1-Theta2))/(l2*(mu-Math.cos(Theta1-Theta2)*Math.cos(Theta1-Theta2)));
-			/*alert(mu);
-			alert(g);
-			alert(Math.sin(Theta2));
-			alert(l1);
-			alert(l2);
-			alert(d2Theta1);
-			alert(Theta1);//theta1 returns correct value before looping through
-			*/
 			dTheta1   += d2Theta1*time;
 			dTheta2   += d2Theta2*time;
 			Theta1    += dTheta1*time;
@@ -54,26 +41,21 @@ function plsWork()
 			drawLine(context,line1.x0, line1.y0, line1.x, line1.y);
 			drawLine(context,line2.x0, line2.y0, line2.x, line2.y);
 			context.fillStyle="green";
-			drawCircle(context,line1.x, line1.y, m1/5);
+			drawCircle(context,line1.x, line1.y, radius1);
 			context.fillStyle="red";
-			drawCircle(context, line2.x, line2.y,m2/5);
-			variable++;
-			
+			drawCircle(context, line2.x, line2.y,radius2);
+			variable++;	
+	}
 		
 	
 	}
-		
-	window.addEventListener("load",plsWork);
-	}
 
 	function drawLine(ctx, startx, starty, endx, endy) {
-		//ctx.clearRect(0,0,ctx.canvas.width, ctx.canvas.height);
 		ctx.beginPath();
 		ctx.moveTo(startx,starty);
 		ctx.lineTo(endx, endy);
 		ctx.stroke();
 		ctx.closePath();
-		//ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
 	}
 
 	function drawCircle(ctx, centerx, centery, radius) {
@@ -82,3 +64,5 @@ function plsWork()
 		ctx.fill();
 		ctx.closePath();
 	}
+	window.addEventListener("load",setUp);
+}

@@ -49,22 +49,18 @@ function plsWork()
 	//DONT' WORRY ABOUT THE FOR LOOP BELOW
 	alert("the shit before the for loop works");
     var variable=0;
-    var id = setInterval(animate,30);
+    var id = setInterval(animate,100);
     function animate() {
     	if (variable>=100) clearInterval(id);
     	else {
-    		context.clearRect(0,0,300,300);
-    		context.beginPath();
-		context.rect(0,0,variable,variable);
-		context.stroke();
-		context.closePath();
-		variable+=10;
+    		drawLine(context,0,0,variable,variable);
+			variable++;
 		//context.clearRect(0,0,100,100);
 	}
 	}
 		// d2Theta1  =  (g*(Math.sin(Theta2)*Math.cos(Theta1-Theta2)-mu*Math.sin(Theta1))-(l2*dTheta2*dTheta2+l1*dTheta1*dTheta1*Math.cos(Theta1-Theta2))*Math.sin(Theta1-Theta2))/(l1*(mu-Math.cos(Theta1-Theta2)*Math.cos(Theta1-Theta2)));
 		// d2Theta2  =  (mu*g*(Math.sin(Theta1)*Math.cos(Theta1-Theta2)-Math.sin(Theta2))+(mu*l1*dTheta1*dTheta1+l2*dTheta2*dTheta2*Math.cos(Theta1-Theta2))*Math.sin(Theta1-Theta2))/(l2*(mu-Math.cos(Theta1-Theta2)*Math.cos(Theta1-Theta2)));
-		// dTheta1   += d2Theta1*time;//error here at this line
+		// dTheta1   += d2Theta1*time;
 		// dTheta2   += d2Theta2*time;
 		// Theta1    += dTheta1*time;
 		// Theta2    += dTheta2*time;
@@ -79,6 +75,15 @@ function plsWork()
 		
 	
 	window.addEventListener("load",plsWork);
+	}
+
+	function drawLine(ctx, startx, starty, endx, endy) {
+		ctx.clearRect(0,0,ctx.width, ctx.height);
+		ctx.beginPath();
+		ctx.moveTo(startx,starty);
+		ctx.lineTo(endx, endy);
+		ctx.stroke();
+		ctx.closePath();
 	}
 
 	

@@ -34,8 +34,6 @@ function plsWork()
     var variable=0;
     var id = setInterval(animate,10);
     function animate() {
-    	if (variable>=10000000) clearInterval(id);
-    	else {
 			context.clearRect(0,0,context.canvas.width, context.canvas.height);
 			d2Theta1  =  (g*(Math.sin(Theta2)*Math.cos(Theta1-Theta2)-mu*Math.sin(Theta1))-(l2*dTheta2*dTheta2+l1*dTheta1*dTheta1*Math.cos(Theta1-Theta2))*Math.sin(Theta1-Theta2))/(l1*(mu-Math.cos(Theta1-Theta2)*Math.cos(Theta1-Theta2)));
 			d2Theta2  =  (mu*g*(Math.sin(Theta1)*Math.cos(Theta1-Theta2)-Math.sin(Theta2))+(mu*l1*dTheta1*dTheta1+l2*dTheta2*dTheta2*Math.cos(Theta1-Theta2))*Math.sin(Theta1-Theta2))/(l2*(mu-Math.cos(Theta1-Theta2)*Math.cos(Theta1-Theta2)));
@@ -54,12 +52,15 @@ function plsWork()
 			line1={x0: 175, y0: 50, x: line1.x0+(l1*Math.sin(Theta1)), y: line1.y0+(l1*Math.cos(Theta1))};
 			line2={x0: line1.x, y0: line1.y, x: line1.x+l2*Math.sin(Theta2), y: line1.y+l2*Math.cos(Theta2)};
 			drawLine(context,line1.x0, line1.y0, line1.x, line1.y);
-			//alert(d2Theta1);
 			drawLine(context,line2.x0, line2.y0, line2.x, line2.y);
+			context.fillStyle="green";
+			drawCircle(context,line1.x, line1.y, m1/5);
+			context.fillStyle="red";
+			drawCircle(context, line2.x, line2.y,m2/5);
 			variable++;
 			
 		
-	}
+	
 	}
 		
 	window.addEventListener("load",plsWork);
@@ -73,4 +74,11 @@ function plsWork()
 		ctx.stroke();
 		ctx.closePath();
 		//ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
+	}
+
+	function drawCircle(ctx, centerx, centery, radius) {
+		ctx.beginPath();
+		ctx.arc(centerx, centery, radius, 0, 2*Math.PI);
+		ctx.fill();
+		ctx.closePath();
 	}

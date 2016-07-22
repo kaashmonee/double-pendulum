@@ -28,8 +28,7 @@ function setUp() {
 start();
 function start()
 {
-	alert("IT WORKS");
-	alert("the shit before the for loop works");
+	alert("It is working");
     var variable=0;
     var id = setInterval(animate,10);
     function animate() {
@@ -50,13 +49,13 @@ function start()
 			drawCircle(context, line2.x, line2.y,radius2);
 	}
 	
-	var id2 = setInterval(animate2,10);
-	function animate2() {
-		lowContext.rect(line1.x, line1.y,1,1);
-		lowContext.stroke();
-		lowContext.rect(line2.x,line2.y,1,1);
+	var id2 = setInterval(drawPaths,10);
+	function drawPaths() {
+		lowContext.strokeStyle="green";
+		drawLine(lowContext, line1.x, line1.y, line1.x+1, line1.y+1);
+		lowContext.strokeStyle="red";
+		drawLine(lowContext, line2.x, line2.y, line2.x+1, line2.y+1);
 	}
-	
 	
 	}
 

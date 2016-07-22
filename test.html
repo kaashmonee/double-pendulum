@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 	<html>
 	<head>
-	<title>JavaScript Hello World</title>
+	<title>Double Pendulum Simulation</title>
 	</head>
 	<body>
 		<h1> Welcome to the double pendulum simulation!
@@ -49,9 +49,12 @@
 			<p id="setP"></p>
 			
 		</h1>
-		<h2> To avoid large circles, please choose reasonable masses.</h2>
+		<h2> To avoid large circles, please choose reasonable masses. <br> Scroll down to see the simulation.</h2>
 		<h3> 
-			<canvas id="canvas"> </canvas>
+			<div class="container">
+			<canvas id="layer1" style="position: absolute; left: 0; top: 400; z-index: 1;"> </canvas>
+			<canvas id="layer2" styel="position: absolute; left: 0; top: 400; z-index: 2;"> </canvas>
+			</div>
 		    <script src="drawing.js"> </script>
 		</h3> 
 		

@@ -1,9 +1,13 @@
 
 function setUp() {
-	var canvas=document.getElementById("canvas");
+	var canvas=document.getElementById("layer1");
     var context=canvas.getContext("2d");
+	var lowCanvas=document.getElementById("layer2");
+	var lowContext=lowCanvas.getContext("2d");
 	canvas.width=600;
 	canvas.height=600;
+	lowCanvas.width=600;
+	lowCanvas.height=600;
 	var m1=window.mass1;
 	var m2=window.mass2;
 	var radius1=m1/10;
@@ -44,8 +48,15 @@ function start()
 			drawCircle(context,line1.x, line1.y, radius1);
 			context.fillStyle="red";
 			drawCircle(context, line2.x, line2.y,radius2);
-			variable++;	
 	}
+	
+	var id2 = setInterval(animate2,10);
+	function animate2() {
+		lowContext.rect(line1.x, line1.y,1,1);
+		lowContext.stroke();
+		lowContext.rect(line2.x,line2.y,1,1);
+	}
+	
 	
 	}
 

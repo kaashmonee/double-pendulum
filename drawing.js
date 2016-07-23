@@ -16,8 +16,8 @@ function setUp() {
 	var time =0.1;
 	var l1=100;
 	var l2=100;
-	var Theta1=(Math.PI)/2; 
-	var Theta2=(Math.PI)/2;
+	var Theta1=window.t1;
+	var Theta2=window.t2;
 	var d2Theta1=0;
 	var d2Theta2=0;
 	var dTheta1=0;
@@ -51,6 +51,7 @@ function start()
 	
 	var id2 = setInterval(drawPaths,10);
 	function drawPaths() {
+		lowContext.lineWidth=5;
 		lowContext.strokeStyle="green";
 		drawLine(lowContext, line1.x, line1.y, line1.x+1, line1.y+1);
 		lowContext.strokeStyle="red";

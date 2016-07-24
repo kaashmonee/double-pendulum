@@ -29,7 +29,6 @@ start();
 function start()
 {
 	alert("Please click to continue.");
-    var variable=0;
     var id = setInterval(animate,10);
     function animate() {
 			context.clearRect(0,0,context.canvas.width, context.canvas.height);

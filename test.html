@@ -9,8 +9,8 @@
 		<script> 
 			window.mass1="";
 			window.mass2="";
-			window.t1="";
-			window.t2="";
+			window.t1=0;
+			window.t2=0;
 			window.isSet=false;
 			//ADD CHECKS FOR THE SET BUTTON AS WELL AS CHANGE MESSAGE WHEN YOU INPUT ZERO FOR THE ANGLE
 			function m1() {
@@ -33,7 +33,7 @@
 			
 			function angle1() {
 				window.t1=prompt("Please enter the first angle (radians): ");
-				if (window.t1>=0 && Number(window.t1)>0)
+				if (Number(window.t1)>=0)
 					document.getElementById("T1P").innerHTML="Angle 1 = "+window.t1+" radians";
 				else
 					document.getElementById("T1P").innerHTML="Please enter a valid value.";
@@ -41,15 +41,15 @@
 			
 			function angle2() {
 				window.t2=prompt("Please enter the first angle (radians): ");
-				if (window.t2>=0 && Number(window.t2)>0)
+				if (Number(window.t2)>=0)
 					document.getElementById("T2P").innerHTML="Angle 2 = "+window.t2+" radians";
 				else
 					document.getElementById("T2P").innerHTML="Please enter a valid value.";
 			}
 			
 			function turnOffButtons() {
-				if (window.mass1<=0 || window.mass2<=0) {
-					document.getElementById("setP").innerHTML="Please set reasonable values for the pendulum first.";
+				if (window.mass1<=0 || window.mass2<=0 || window.t1<0 || window.t2<0) {
+					document.getElementById("setP").innerHTML="Please set reasonable values for the pendula and the angles first.";
 				}
 				else {
 				document.getElementById("m1b").disabled=true;
@@ -77,8 +77,8 @@
 		<h2> To avoid unreasonably sized circles, please choose masses between 0-400 kg. <br> Scroll down to see the simulation.</h2>
 		<h3> 
 			<div class="container">
-			<canvas id="layer1" style="position: absolute; left: 0; top: 550; z-index: 1;"> </canvas>
-			<canvas id="layer2" styel="position: absolute; left: 0; top: 550; z-index: 2;"> </canvas>
+			<canvas id="layer1" style="position: absolute; left: 0; top: 620; z-index: 1;"> </canvas>
+			<canvas id="layer2" styel="position: absolute; left: 0; top: 620; z-index: 2;"> </canvas>
 			</div>
 		    <script src="drawing.js"> </script>
 		</h3> 

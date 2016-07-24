@@ -16,8 +16,8 @@ function setUp() {
 	var time =0.1;
 	var l1=100;
 	var l2=100;
-	var Theta1=window.t1;
-	var Theta2=window.t2;
+	var Theta1=Number(window.t1);
+	var Theta2=Number(window.t2);
 	var d2Theta1=0;
 	var d2Theta2=0;
 	var dTheta1=0;
@@ -28,7 +28,7 @@ function setUp() {
 start();
 function start()
 {
-	alert("It is working");
+	alert("Please click to continue.");
     var variable=0;
     var id = setInterval(animate,10);
     function animate() {
